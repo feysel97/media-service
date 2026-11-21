@@ -1,0 +1,36 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: media-service
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: your_rabbitmq_username
+    password: your_rabbitmaq_password
+
+rabbitmq:
+  exchange:
+    media: media-exchange
+  routing:
+    file-uploaded: file.uploaded.key
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka_admin:secure_password_123@localhost:8761/eureka/
+
+minio:
+  url: http://localhost:9000
+  access-key: your_minio_username
+  secret-key: your_minio_password
+  bucket-name: microservice-media
